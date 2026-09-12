@@ -1,0 +1,9 @@
+*{
+    background-color: rgb(153, 113, 153);
+}
+
+
+.myDiv{
+    margin: 10px;
+    border: solid black;
+}
