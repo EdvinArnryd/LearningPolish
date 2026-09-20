@@ -1,5 +1,7 @@
-const container = document.querySelector(".container");
+const monthsContainer = document.querySelector("#monthsContainer");
+const daysContainer = document.querySelector("#daysContainer");
 let months = 12;
+let weekDays = 7;
 
 const monthsArr = [
     {english: "January", polish: "Styczeń"},
@@ -31,17 +33,49 @@ const monthColor = [
     {color: "blue"},
 ]
 
+const daysArr = [
+    {english: "Monday", polish: "Poniedziałek"},
+    {english: "Tuesday", polish: "Wtorek"},
+    {english: "Wednesday", polish: "Środa"},
+    {english: "Thursday", polish: "Czwartek"},
+    {english: "Friday", polish: "Piątek"},
+    {english: "Saturday", polish: "Sobota"},
+    {english: "Sunday", polish: "Niedziela"},
+]
+
 
 for(let i = 0; i < months; i++)
 {
-    let myDiv = document.createElement("div");
-    myDiv.className = "myDiv";
-    myDiv.textContent = monthsArr[i].english;
-    myDiv.style.backgroundColor = monthColor[i].color;
+    let engDiv = document.createElement("div");
+    engDiv.className = "myDiv";
+    engDiv.textContent = monthsArr[i].english;
+    engDiv.style.backgroundColor = monthColor[i].color;
 
     let plDiv = document.createElement("div");
     plDiv.textContent = monthsArr[i].polish;
     plDiv.className = "month";
-    container.appendChild(myDiv);
-    myDiv.appendChild(plDiv);
+    monthsContainer.appendChild(engDiv);
+    engDiv.appendChild(plDiv);
+
+    let nmDiv = document.createElement("div");
+    nmDiv.textContent = i+1;
+    engDiv.appendChild(nmDiv);
+}
+
+for(let i = 0; i < weekDays; i++)
+{
+    let engDiv = document.createElement("div");
+    engDiv.className = "myDiv";
+    engDiv.textContent = daysArr[i].english;
+    engDiv.style.backgroundColor = monthColor[i].color;
+
+    let plDiv = document.createElement("div");
+    plDiv.textContent = daysArr[i].polish;
+    plDiv.className = "month";
+    daysContainer.appendChild(engDiv);
+    engDiv.appendChild(plDiv);
+
+    let nmDiv = document.createElement("div");
+    nmDiv.textContent = i+1;
+    engDiv.appendChild(nmDiv);
 }

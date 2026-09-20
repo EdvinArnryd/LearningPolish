@@ -1,4 +1,4 @@
-*{
+body{
     background-color: rgb(153, 113, 153);
     margin: 0 auto;
     align-items: center;
@@ -34,4 +34,5 @@ h1{
     background-color: rgb(192, 192, 255);
     padding: 20px;
     margin-top: 50px;
+    margin-bottom: 100px;
 }
