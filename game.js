@@ -33,6 +33,11 @@ verifyBtn.addEventListener("click", () => {
         result.textContent = "Correct!";
         result.style.color = "green";
     }
+    else if(input.value.length == currentPolishWord.length)
+    {
+        result.textContent = "Length is correct!";
+        result.style.color = "yellow";
+    }
     else
     {
         result.textContent = "Incorrect!";
