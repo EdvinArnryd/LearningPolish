@@ -7,15 +7,51 @@ const nextBtn = document.querySelector(".nextBtn");
 let currentPolishWord = "";
 
 const polishWord = [
-    {english: "wine", polish: "wino"},
-    {english: "milk", polish: "mleko"},
-    {english: "bread", polish: "chleb"},
+    // {english: "wine", polish: "wino"},
+    // {english: "milk", polish: "mleko"},
+    // {english: "bread", polish: "chleb"},
     {english: "apple", polish: "jabłko"},
-    {english: "juice", polish: "sok"},
+    // {english: "juice", polish: "sok"},
     {english: "butter", polish: "masło"},
-    {english: "cheese", polish: "ser"},
-    {english: "kanapka", polish: "sandwich"},
+    // {english: "cheese", polish: "ser"},
+    // {english: "sandwich", polish: "kanapka"},
 ];
+
+const polishLetters = [
+    {english: "l", polish: "ł"},
+    {english: "a", polish: "ą"},
+    {english: "c", polish: "ć"},
+    {english: "e", polish: "ę"},
+    {english: "n", polish: "ń"},
+    {english: "o", polish: "ó"},
+    {english: "s", polish: "ś"},
+    {english: "z", polish: "ź"},
+    {english: "z", polish: "ż"},
+]
+
+function convertToEnglishAlphabet(str) {
+    let newString = "";
+    for(let strElement of str)
+    {
+        // for(let lettersElement of polishLetters)
+        // {
+        //     if(strElement == lettersElement.polish)
+        //     {
+        //         newString += lettersElement.english;
+        //     }
+        // }
+        res = polishLetters.find(el => el.polish == strElement);
+        if(res)
+        {
+            newString += res.english;
+        }
+        else{
+            newString += strElement;
+        }
+    }
+
+    return newString;
+}
 
 function newWord() {
     let random = Math.floor(Math.random() * polishWord.length);
@@ -23,12 +59,14 @@ function newWord() {
     displayWord.textContent = word.english;
 
     currentPolishWord = word.polish;
-
-    console.log("Hi");
+    result.textContent = "Result";
+    result.style.color = "black";
 }
 
 verifyBtn.addEventListener("click", () => {
-    if(input.value == currentPolishWord)
+
+    console.log(convertToEnglishAlphabet(currentPolishWord));
+    if(input.value == convertToEnglishAlphabet(currentPolishWord))
     {
         result.textContent = "Correct!";
         result.style.color = "green";
