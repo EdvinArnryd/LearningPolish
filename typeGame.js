@@ -6,15 +6,15 @@ const nextBtn = document.querySelector(".nextBtn");
 
 let currentPolishWord = "";
 
-const polishWord = [
-    // {english: "wine", polish: "wino"},
-    // {english: "milk", polish: "mleko"},
-    // {english: "bread", polish: "chleb"},
+const polishWords = [
+    {english: "wine", polish: "wino"},
+    {english: "milk", polish: "mleko"},
+    {english: "bread", polish: "chleb"},
     {english: "apple", polish: "jabłko"},
-    // {english: "juice", polish: "sok"},
+    {english: "juice", polish: "sok"},
     {english: "butter", polish: "masło"},
-    // {english: "cheese", polish: "ser"},
-    // {english: "sandwich", polish: "kanapka"},
+    {english: "cheese", polish: "ser"},
+    {english: "sandwich", polish: "kanapka"},
 ];
 
 const polishLetters = [
@@ -33,13 +33,6 @@ function convertToEnglishAlphabet(str) {
     let newString = "";
     for(let strElement of str)
     {
-        // for(let lettersElement of polishLetters)
-        // {
-        //     if(strElement == lettersElement.polish)
-        //     {
-        //         newString += lettersElement.english;
-        //     }
-        // }
         res = polishLetters.find(el => el.polish == strElement);
         if(res)
         {
@@ -54,8 +47,8 @@ function convertToEnglishAlphabet(str) {
 }
 
 function newWord() {
-    let random = Math.floor(Math.random() * polishWord.length);
-    let word = polishWord[random];
+    let random = Math.floor(Math.random() * polishWords.length);
+    let word = polishWords[random];
     displayWord.textContent = word.english;
 
     currentPolishWord = word.polish;

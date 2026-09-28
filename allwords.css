@@ -1,0 +1,14 @@
+th, td {
+    border: 3px solid black;
+    background-color: gray;
+    padding: 10px;
+}
+
+th{
+    background-color: rgb(78, 78, 78);
+}
+
+table {
+    margin: 0 auto;
+}
+
